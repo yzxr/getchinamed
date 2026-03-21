@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetChinaMed - Affordable Healthcare in China | Save 60-80%</title>
+    <meta name="description" content="World-class healthcare in China at 60-80% less than US prices. Dental implants, cosmetic surgery, medical checkups. Free consultation available.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8fafc;
+            padding: 4rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Price Comparison */
+        .pricing {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .price-table th {
+            background: #2563eb;
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .price-table td {
+            padding: 1.25rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .price-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .price-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        .savings {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Services */
+        .services {
+            background: #f8fafc;
+            padding: 6rem 2rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .service-card p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: #64748b;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8fafc;
+            padding: 6rem 2rem;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e2e8f0;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .testimonial-location {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: #2563eb;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: #1d4ed8;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-float:hover {
+            background: #20ba5a;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .price-table {
+                font-size: 0.9rem;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">GetChinaMed</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#pricing">Prices</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact" class="btn-primary">Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>World-Class Healthcare in China<br>Save 60-80% on Medical Costs</h1>
+        <p>Access top 3A hospitals in China with English-speaking staff. Quality care at a fraction of US prices.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-primary btn-large">Get Free Quote</a>
+            <a href="#pricing" class="btn-primary btn-large btn-secondary">View Prices</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">60-80%</div>
+                <div class="stat-label">Average Savings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Successful Cases</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Partner Hospitals</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Satisfaction Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Comparison -->
+    <section id="pricing" class="pricing">
+        <h2 class="section-title">Compare Prices & Save Thousands</h2>
+        <p class="section-subtitle">Same quality, same technology, 60-80% less cost</p>
+        
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Procedure</th>
+                    <th>US Price</th>
+                    <th>China Price</th>
+                    <th>Your Savings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Full Mouth Dental Implants</strong></td>
+                    <td>$50,000 - $80,000</td>
+                    <td>$15,000 - $25,000</td>
+                    <td class="savings">$35,000 - $55,000 (70%)</td>
+                </tr>
+                <tr>
+                    <td><strong>Facelift Surgery</strong></td>
+                    <td>$15,000 - $30,000</td>
+                    <td>$5,000 - $10,000</td>
+                    <td class="savings">$10,000 - $20,000 (67%)</td>
+                </tr>
+                <tr>
+                    <td><strong>Executive Health Checkup</strong></td>
+                    <td>$2,000 - $5,000</td>
+                    <td>$500 - $1,000</td>
+                    <td class="savings">$1,500 - $4,000 (75%)</td>
+                </tr>
+                <tr>
+                    <td><strong>Hip Replacement</strong></td>
+                    <td>$40,000 - $60,000</td>
+                    <td>$12,000 - $18,000</td>
+                    <td class="savings">$28,000 - $42,000 (70%)</td>
+                </tr>
+                <tr>
+                    <td><strong>IVF Treatment (per cycle)</strong></td>
+                    <td>$15,000 - $25,000</td>
+                    <td>$5,000 - $8,000</td>
+                    <td class="savings">$10,000 - $17,000 (60%)</td>
+                </tr>
+                <tr>
+                    <td><strong>Traditional Chinese Medicine (14 days)</strong></td>
+                    <td>$8,000 - $15,000</td>
+                    <td>$2,000 - $4,000</td>
+                    <td class="savings">$6,000 - $11,000 (73%)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#contact" class="btn-primary btn-large">Calculate Your Savings</a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Medical Services</h2>
+        <p class="section-subtitle">Comprehensive healthcare solutions at unbeatable prices</p>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">🦷</div>
+                <h3>Dental Implants</h3>
+                <p>Full mouth reconstruction, single implants, All-on-4. Top materials, experienced surgeons.</p>
+                <div class="service-price">From $1,500 per implant</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💉</div>
+                <h3>Cosmetic Surgery</h3>
+                <p>Facelift, rhinoplasty, breast augmentation, liposuction. Board-certified plastic surgeons.</p>
+                <div class="service-price">From $3,000</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Health Checkup</h3>
+                <p>Comprehensive executive health screening. Advanced imaging, full blood work, specialist consultations.</p>
+                <div class="service-price">From $500</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🌿</div>
+                <h3>Traditional Chinese Medicine</h3>
+                <p>Acupuncture, herbal medicine, cupping, tuina massage. Holistic healing approaches.</p>
+                <div class="service-price">From $2,000 (14 days)</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>IVF & Reproductive</h3>
+                <p>In vitro fertilization, egg freezing, sperm banking. High success rates, modern facilities.</p>
+                <div class="service-price">From $5,000 per cycle</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🦴</div>
+                <h3>Orthopedic Surgery</h3>
+                <p>Hip/knee replacement, spinal surgery, sports medicine. Minimally invasive techniques.</p>
+                <div class="service-price">From $12,000</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Simple 4-step process to save thousands on healthcare</p>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Free Consultation</h3>
+                <p>Submit your inquiry. Our medical consultants will review your case within 24 hours.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Treatment Plan</h3>
+                <p>Receive personalized treatment plan, price quote, and hospital recommendations.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Travel & Treatment</h3>
+                <p>We arrange airport pickup, hotel, translator, and hospital appointments.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Follow-up Care</h3>
+                <p>Remote follow-up consultations. We ensure your recovery goes smoothly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Success Stories</h2>
+        <p class="section-subtitle">Real patients, real savings, real results</p>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I saved $35,000 on full mouth dental implants! The quality in China was excellent, and the hospital staff spoke perfect English. Best decision ever."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <div class="testimonial-name">Mrs. Zhang</div>
+                        <div class="testimonial-location">Los Angeles, USA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The facelift I got in China cost 1/3 of what I was quoted in London. The surgeon was amazing, and I recovered in a nice hotel. Highly recommend!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <div class="testimonial-name">Mr. Johnson</div>
+                        <div class="testimonial-location">London, UK</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"We came for a health checkup and ended up having a wonderful week in Beijing. The medical care was top-notch, and we saved so much money!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <div class="testimonial-name">Mr. & Mrs. Lee</div>
+                        <div class="testimonial-location">Toronto, Canada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get Your Free Quote</h2>
+        <p class="section-subtitle">Fill out the form below and we'll contact you within 24 hours</p>
+        
+        <div class="form-container">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number (with country code)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Interested Service *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="Dental Implants">Dental Implants</option>
+                        <option value="Cosmetic Surgery">Cosmetic Surgery</option>
+                        <option value="Health Checkup">Health Checkup</option>
+                        <option value="Traditional Chinese Medicine">Traditional Chinese Medicine</option>
+                        <option value="IVF Treatment">IVF Treatment</option>
+                        <option value="Orthopedic Surgery">Orthopedic Surgery</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Needs</label>
+                    <textarea id="message" name="message" placeholder="Describe your medical needs, preferred timeline, any questions..."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Get Free Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#pricing">Prices</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <p>&copy; 2026 GetChinaMed. All rights reserved.</p>
+        <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.9rem;">
+            Connecting international patients with quality, affordable healthcare in China
+        </p>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/8613800138000?text=Hi,%20I'm%20interested%20in%20medical%20services%20in%20China" class="whatsapp-float" target="_blank">
+        <span>💬</span> Chat on WhatsApp
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            // Formspree will handle the submission
+            // You can add custom validation here if needed
+        });
+    </script>
+</body>
+</html>
