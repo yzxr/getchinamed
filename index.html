@@ -18,6 +18,33 @@
             color: #333;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid #2563eb;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2563eb;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+
         /* Navigation */
         .navbar {
             background: #fff;
@@ -451,6 +478,11 @@
                 display: none;
             }
 
+            .lang-switcher {
+                top: 80px;
+                right: 10px;
+            }
+
             .price-table {
                 font-size: 0.9rem;
             }
@@ -463,27 +495,34 @@
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+        <button class="lang-btn" onclick="switchLang('zh-tw')">繁體</button>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">GetChinaMed</div>
             <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#pricing">Prices</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#contact" class="btn-primary">Free Quote</a>
+                <a href="#services" data-i18n="services">Services</a>
+                <a href="#pricing" data-i18n="prices">Prices</a>
+                <a href="#how-it-works" data-i18n="howItWorks">How It Works</a>
+                <a href="#testimonials" data-i18n="reviews">Reviews</a>
+                <a href="#contact" class="btn-primary" data-i18n="freeQuote">Free Quote</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>World-Class Healthcare in China<br>Save 60-80% on Medical Costs</h1>
-        <p>Access top 3A hospitals in China with English-speaking staff. Quality care at a fraction of US prices.</p>
+        <h1 data-i18n="heroTitle">World-Class Healthcare in China<br>Save 60-80% on Medical Costs</h1>
+        <p data-i18n="heroSubtitle">Access top 3A hospitals in China with English-speaking staff. Quality care at a fraction of US prices.</p>
         <div class="hero-buttons">
-            <a href="#contact" class="btn-primary btn-large">Get Free Quote</a>
-            <a href="#pricing" class="btn-primary btn-large btn-secondary">View Prices</a>
+            <a href="#contact" class="btn-primary btn-large" data-i18n="getFreeQuote">Get Free Quote</a>
+            <a href="#pricing" class="btn-primary btn-large btn-secondary" data-i18n="viewPrices">View Prices</a>
         </div>
     </section>
 
@@ -492,170 +531,170 @@
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-number">60-80%</div>
-                <div class="stat-label">Average Savings</div>
+                <div class="stat-label" data-i18n="avgSavings">Average Savings</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">500+</div>
-                <div class="stat-label">Successful Cases</div>
+                <div class="stat-label" data-i18n="successfulCases">Successful Cases</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">15+</div>
-                <div class="stat-label">Partner Hospitals</div>
+                <div class="stat-label" data-i18n="partnerHospitals">Partner Hospitals</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Satisfaction Rate</div>
+                <div class="stat-label" data-i18n="satisfactionRate">Satisfaction Rate</div>
             </div>
         </div>
     </section>
 
     <!-- Price Comparison -->
     <section id="pricing" class="pricing">
-        <h2 class="section-title">Compare Prices & Save Thousands</h2>
-        <p class="section-subtitle">Same quality, same technology, 60-80% less cost</p>
+        <h2 class="section-title" data-i18n="comparePrices">Compare Prices & Save Thousands</h2>
+        <p class="section-subtitle" data-i18n="compareSubtitle">Same quality, same technology, 60-80% less cost</p>
         
         <table class="price-table">
             <thead>
                 <tr>
-                    <th>Procedure</th>
-                    <th>US Price</th>
-                    <th>China Price</th>
-                    <th>Your Savings</th>
+                    <th data-i18n="procedure">Procedure</th>
+                    <th data-i18n="usPrice">US Price</th>
+                    <th data-i18n="chinaPrice">China Price</th>
+                    <th data-i18n="yourSavings">Your Savings</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Full Mouth Dental Implants</strong></td>
+                    <td><strong data-i18n="dentalFull">Full Mouth Dental Implants</strong></td>
                     <td>$50,000 - $80,000</td>
                     <td>$15,000 - $25,000</td>
-                    <td class="savings">$35,000 - $55,000 (70%)</td>
+                    <td class="savings" data-i18n="save35k">$35,000 - $55,000 (70%)</td>
                 </tr>
                 <tr>
-                    <td><strong>Facelift Surgery</strong></td>
+                    <td><strong data-i18n="facelift">Facelift Surgery</strong></td>
                     <td>$15,000 - $30,000</td>
                     <td>$5,000 - $10,000</td>
-                    <td class="savings">$10,000 - $20,000 (67%)</td>
+                    <td class="savings" data-i18n="save10k">$10,000 - $20,000 (67%)</td>
                 </tr>
                 <tr>
-                    <td><strong>Executive Health Checkup</strong></td>
+                    <td><strong data-i18n="checkup">Executive Health Checkup</strong></td>
                     <td>$2,000 - $5,000</td>
                     <td>$500 - $1,000</td>
-                    <td class="savings">$1,500 - $4,000 (75%)</td>
+                    <td class="savings" data-i18n="save1k5">$1,500 - $4,000 (75%)</td>
                 </tr>
                 <tr>
-                    <td><strong>Hip Replacement</strong></td>
+                    <td><strong data-i18n="hipReplacement">Hip Replacement</strong></td>
                     <td>$40,000 - $60,000</td>
                     <td>$12,000 - $18,000</td>
-                    <td class="savings">$28,000 - $42,000 (70%)</td>
+                    <td class="savings" data-i18n="save28k">$28,000 - $42,000 (70%)</td>
                 </tr>
                 <tr>
-                    <td><strong>IVF Treatment (per cycle)</strong></td>
+                    <td><strong data-i18n="ivf">IVF Treatment (per cycle)</strong></td>
                     <td>$15,000 - $25,000</td>
                     <td>$5,000 - $8,000</td>
-                    <td class="savings">$10,000 - $17,000 (60%)</td>
+                    <td class="savings" data-i18n="save10k2">$10,000 - $17,000 (60%)</td>
                 </tr>
                 <tr>
-                    <td><strong>Traditional Chinese Medicine (14 days)</strong></td>
+                    <td><strong data-i18n="tcm">Traditional Chinese Medicine (14 days)</strong></td>
                     <td>$8,000 - $15,000</td>
                     <td>$2,000 - $4,000</td>
-                    <td class="savings">$6,000 - $11,000 (73%)</td>
+                    <td class="savings" data-i18n="save6k">$6,000 - $11,000 (73%)</td>
                 </tr>
             </tbody>
         </table>
 
         <div style="text-align: center; margin-top: 2rem;">
-            <a href="#contact" class="btn-primary btn-large">Calculate Your Savings</a>
+            <a href="#contact" class="btn-primary btn-large" data-i18n="calcSavings">Calculate Your Savings</a>
         </div>
     </section>
 
     <!-- Services -->
     <section id="services" class="services">
-        <h2 class="section-title">Our Medical Services</h2>
-        <p class="section-subtitle">Comprehensive healthcare solutions at unbeatable prices</p>
+        <h2 class="section-title" data-i18n="ourServices">Our Medical Services</h2>
+        <p class="section-subtitle" data-i18n="servicesSubtitle">Comprehensive healthcare solutions at unbeatable prices</p>
         
         <div class="services-container">
             <div class="service-card">
                 <div class="service-icon">🦷</div>
-                <h3>Dental Implants</h3>
-                <p>Full mouth reconstruction, single implants, All-on-4. Top materials, experienced surgeons.</p>
-                <div class="service-price">From $1,500 per implant</div>
+                <h3 data-i18n="dental">Dental Implants</h3>
+                <p data-i18n="dentalDesc">Full mouth reconstruction, single implants, All-on-4. Top materials, experienced surgeons.</p>
+                <div class="service-price" data-i18n="from1500">From $1,500 per implant</div>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">💉</div>
-                <h3>Cosmetic Surgery</h3>
-                <p>Facelift, rhinoplasty, breast augmentation, liposuction. Board-certified plastic surgeons.</p>
-                <div class="service-price">From $3,000</div>
+                <h3 data-i18n="cosmetic">Cosmetic Surgery</h3>
+                <p data-i18n="cosmeticDesc">Facelift, rhinoplasty, breast augmentation, liposuction. Board-certified plastic surgeons.</p>
+                <div class="service-price" data-i18n="from3000">From $3,000</div>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">🏥</div>
-                <h3>Health Checkup</h3>
-                <p>Comprehensive executive health screening. Advanced imaging, full blood work, specialist consultations.</p>
-                <div class="service-price">From $500</div>
+                <h3 data-i18n="healthCheckup">Health Checkup</h3>
+                <p data-i18n="checkupDesc">Comprehensive executive health screening. Advanced imaging, full blood work, specialist consultations.</p>
+                <div class="service-price" data-i18n="from500">From $500</div>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">🌿</div>
-                <h3>Traditional Chinese Medicine</h3>
-                <p>Acupuncture, herbal medicine, cupping, tuina massage. Holistic healing approaches.</p>
-                <div class="service-price">From $2,000 (14 days)</div>
+                <h3 data-i18n="tcm2">Traditional Chinese Medicine</h3>
+                <p data-i18n="tcmDesc">Acupuncture, herbal medicine, cupping, tuina massage. Holistic healing approaches.</p>
+                <div class="service-price" data-i18n="from2000">From $2,000 (14 days)</div>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">👶</div>
-                <h3>IVF & Reproductive</h3>
-                <p>In vitro fertilization, egg freezing, sperm banking. High success rates, modern facilities.</p>
-                <div class="service-price">From $5,000 per cycle</div>
+                <h3 data-i18n="ivf2">IVF & Reproductive</h3>
+                <p data-i18n="ivfDesc">In vitro fertilization, egg freezing, sperm banking. High success rates, modern facilities.</p>
+                <div class="service-price" data-i18n="from5000">From $5,000 per cycle</div>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">🦴</div>
-                <h3>Orthopedic Surgery</h3>
-                <p>Hip/knee replacement, spinal surgery, sports medicine. Minimally invasive techniques.</p>
-                <div class="service-price">From $12,000</div>
+                <h3 data-i18n="ortho">Orthopedic Surgery</h3>
+                <p data-i18n="orthoDesc">Hip/knee replacement, spinal surgery, sports medicine. Minimally invasive techniques.</p>
+                <div class="service-price" data-i18n="from12000">From $12,000</div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
     <section id="how-it-works" class="how-it-works">
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-subtitle">Simple 4-step process to save thousands on healthcare</p>
+        <h2 class="section-title" data-i18n="howItWorks2">How It Works</h2>
+        <p class="section-subtitle" data-i18n="howSubtitle">Simple 4-step process to save thousands on healthcare</p>
         
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3>Free Consultation</h3>
-                <p>Submit your inquiry. Our medical consultants will review your case within 24 hours.</p>
+                <h3 data-i18n="step1">Free Consultation</h3>
+                <p data-i18n="step1Desc">Submit your inquiry. Our medical consultants will review your case within 24 hours.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <h3>Treatment Plan</h3>
-                <p>Receive personalized treatment plan, price quote, and hospital recommendations.</p>
+                <h3 data-i18n="step2">Treatment Plan</h3>
+                <p data-i18n="step2Desc">Receive personalized treatment plan, price quote, and hospital recommendations.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
-                <h3>Travel & Treatment</h3>
-                <p>We arrange airport pickup, hotel, translator, and hospital appointments.</p>
+                <h3 data-i18n="step3">Travel & Treatment</h3>
+                <p data-i18n="step3Desc">We arrange airport pickup, hotel, translator, and hospital appointments.</p>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
-                <h3>Follow-up Care</h3>
-                <p>Remote follow-up consultations. We ensure your recovery goes smoothly.</p>
+                <h3 data-i18n="step4">Follow-up Care</h3>
+                <p data-i18n="step4Desc">Remote follow-up consultations. We ensure your recovery goes smoothly.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
-        <h2 class="section-title">Success Stories</h2>
-        <p class="section-subtitle">Real patients, real savings, real results</p>
+        <h2 class="section-title" data-i18n="successStories">Success Stories</h2>
+        <p class="section-subtitle" data-i18n="storiesSubtitle">Real patients, real savings, real results</p>
         
         <div class="testimonials-container">
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"I saved $35,000 on full mouth dental implants! The quality in China was excellent, and the hospital staff spoke perfect English. Best decision ever."</p>
+                <p class="testimonial-text" data-i18n="review1">"I saved $35,000 on full mouth dental implants! The quality in China was excellent, and the hospital staff spoke perfect English. Best decision ever."</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar"></div>
                     <div>
@@ -667,7 +706,7 @@
 
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"The facelift I got in China cost 1/3 of what I was quoted in London. The surgeon was amazing, and I recovered in a nice hotel. Highly recommend!"</p>
+                <p class="testimonial-text" data-i18n="review2">"The facelift I got in China cost 1/3 of what I was quoted in London. The surgeon was amazing, and I recovered in a nice hotel. Highly recommend!"</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar"></div>
                     <div>
@@ -679,7 +718,7 @@
 
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"We came for a health checkup and ended up having a wonderful week in Beijing. The medical care was top-notch, and we saved so much money!"</p>
+                <p class="testimonial-text" data-i18n="review3">"We came for a health checkup and ended up having a wonderful week in Beijing. The medical care was top-notch, and we saved so much money!"</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar"></div>
                     <div>
@@ -693,28 +732,28 @@
 
     <!-- Contact Form -->
     <section id="contact" class="contact">
-        <h2 class="section-title">Get Your Free Quote</h2>
-        <p class="section-subtitle">Fill out the form below and we'll contact you within 24 hours</p>
+        <h2 class="section-title" data-i18n="getFreeQuote2">Get Your Free Quote</h2>
+        <p class="section-subtitle" data-i18n="quoteSubtitle">Fill out the form below and we'll contact you within 24 hours</p>
         
         <div class="form-container">
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
-                    <label for="name">Full Name *</label>
+                    <label for="name" data-i18n="labelName">Full Name *</label>
                     <input type="text" id="name" name="name" required placeholder="Your name">
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email Address *</label>
+                    <label for="email" data-i18n="labelEmail">Email Address *</label>
                     <input type="email" id="email" name="email" required placeholder="your@email.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number (with country code)</label>
+                    <label for="phone" data-i18n="labelPhone">Phone Number (with country code)</label>
                     <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900">
                 </div>
 
                 <div class="form-group">
-                    <label for="service">Interested Service *</label>
+                    <label for="service" data-i18n="labelService">Interested Service *</label>
                     <select id="service" name="service" required>
                         <option value="">Select a service</option>
                         <option value="Dental Implants">Dental Implants</option>
@@ -728,11 +767,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Tell Us About Your Needs</label>
+                    <label for="message" data-i18n="labelMessage">Tell Us About Your Needs</label>
                     <textarea id="message" name="message" placeholder="Describe your medical needs, preferred timeline, any questions..."></textarea>
                 </div>
 
-                <button type="submit" class="form-submit">Get Free Quote</button>
+                <button type="submit" class="form-submit" data-i18n="submitQuote">Get Free Quote</button>
             </form>
         </div>
     </section>
@@ -740,25 +779,327 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
-            <a href="#services">Services</a>
-            <a href="#pricing">Prices</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#contact">Contact</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="#services" data-i18n="services2">Services</a>
+            <a href="#pricing" data-i18n="prices2">Prices</a>
+            <a href="#how-it-works" data-i18n="howItWorks3">How It Works</a>
+            <a href="#contact" data-i18n="contact">Contact</a>
+            <a href="#" data-i18n="privacy">Privacy Policy</a>
+            <a href="#" data-i18n="terms">Terms of Service</a>
         </div>
         <p>&copy; 2026 GetChinaMed. All rights reserved.</p>
-        <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.9rem;">
+        <p style="margin-top: 1rem; color: #94a3b8; font-size: 0.9rem;" data-i18n="footerText">
             Connecting international patients with quality, affordable healthcare in China
         </p>
     </footer>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/8613800138000?text=Hi,%20I'm%20interested%20in%20medical%20services%20in%20China" class="whatsapp-float" target="_blank">
-        <span>💬</span> Chat on WhatsApp
+        <span>💬</span> <span data-i18n="chatWhatsApp">Chat on WhatsApp</span>
     </a>
 
     <script>
+        // Translations
+        const translations = {
+            en: {
+                services: "Services",
+                prices: "Prices",
+                howItWorks: "How It Works",
+                reviews: "Reviews",
+                freeQuote: "Free Quote",
+                heroTitle: "World-Class Healthcare in China<br>Save 60-80% on Medical Costs",
+                heroSubtitle: "Access top 3A hospitals in China with English-speaking staff. Quality care at a fraction of US prices.",
+                getFreeQuote: "Get Free Quote",
+                viewPrices: "View Prices",
+                avgSavings: "Average Savings",
+                successfulCases: "Successful Cases",
+                partnerHospitals: "Partner Hospitals",
+                satisfactionRate: "Satisfaction Rate",
+                comparePrices: "Compare Prices & Save Thousands",
+                compareSubtitle: "Same quality, same technology, 60-80% less cost",
+                procedure: "Procedure",
+                usPrice: "US Price",
+                chinaPrice: "China Price",
+                yourSavings: "Your Savings",
+                dentalFull: "Full Mouth Dental Implants",
+                facelift: "Facelift Surgery",
+                checkup: "Executive Health Checkup",
+                hipReplacement: "Hip Replacement",
+                ivf: "IVF Treatment (per cycle)",
+                tcm: "Traditional Chinese Medicine (14 days)",
+                save35k: "$35,000 - $55,000 (70%)",
+                save10k: "$10,000 - $20,000 (67%)",
+                save1k5: "$1,500 - $4,000 (75%)",
+                save28k: "$28,000 - $42,000 (70%)",
+                save10k2: "$10,000 - $17,000 (60%)",
+                save6k: "$6,000 - $11,000 (73%)",
+                calcSavings: "Calculate Your Savings",
+                ourServices: "Our Medical Services",
+                servicesSubtitle: "Comprehensive healthcare solutions at unbeatable prices",
+                dental: "Dental Implants",
+                dentalDesc: "Full mouth reconstruction, single implants, All-on-4. Top materials, experienced surgeons.",
+                from1500: "From $1,500 per implant",
+                cosmetic: "Cosmetic Surgery",
+                cosmeticDesc: "Facelift, rhinoplasty, breast augmentation, liposuction. Board-certified plastic surgeons.",
+                from3000: "From $3,000",
+                healthCheckup: "Health Checkup",
+                checkupDesc: "Comprehensive executive health screening. Advanced imaging, full blood work, specialist consultations.",
+                from500: "From $500",
+                tcm2: "Traditional Chinese Medicine",
+                tcmDesc: "Acupuncture, herbal medicine, cupping, tuina massage. Holistic healing approaches.",
+                from2000: "From $2,000 (14 days)",
+                ivf2: "IVF & Reproductive",
+                ivfDesc: "In vitro fertilization, egg freezing, sperm banking. High success rates, modern facilities.",
+                from5000: "From $5,000 per cycle",
+                ortho: "Orthopedic Surgery",
+                orthoDesc: "Hip/knee replacement, spinal surgery, sports medicine. Minimally invasive techniques.",
+                from12000: "From $12,000",
+                howItWorks2: "How It Works",
+                howSubtitle: "Simple 4-step process to save thousands on healthcare",
+                step1: "Free Consultation",
+                step1Desc: "Submit your inquiry. Our medical consultants will review your case within 24 hours.",
+                step2: "Treatment Plan",
+                step2Desc: "Receive personalized treatment plan, price quote, and hospital recommendations.",
+                step3: "Travel & Treatment",
+                step3Desc: "We arrange airport pickup, hotel, translator, and hospital appointments.",
+                step4: "Follow-up Care",
+                step4Desc: "Remote follow-up consultations. We ensure your recovery goes smoothly.",
+                successStories: "Success Stories",
+                storiesSubtitle: "Real patients, real savings, real results",
+                review1: "\"I saved $35,000 on full mouth dental implants! The quality in China was excellent, and the hospital staff spoke perfect English. Best decision ever.\"",
+                review2: "\"The facelift I got in China cost 1/3 of what I was quoted in London. The surgeon was amazing, and I recovered in a nice hotel. Highly recommend!\"",
+                review3: "\"We came for a health checkup and ended up having a wonderful week in Beijing. The medical care was top-notch, and we saved so much money!\"",
+                getFreeQuote2: "Get Your Free Quote",
+                quoteSubtitle: "Fill out the form below and we'll contact you within 24 hours",
+                labelName: "Full Name *",
+                labelEmail: "Email Address *",
+                labelPhone: "Phone Number (with country code)",
+                labelService: "Interested Service *",
+                labelMessage: "Tell Us About Your Needs",
+                submitQuote: "Get Free Quote",
+                services2: "Services",
+                prices2: "Prices",
+                howItWorks3: "How It Works",
+                contact: "Contact",
+                privacy: "Privacy Policy",
+                terms: "Terms of Service",
+                footerText: "Connecting international patients with quality, affordable healthcare in China",
+                chatWhatsApp: "Chat on WhatsApp"
+            },
+            zh: {
+                services: "服务项目",
+                prices: "价格对比",
+                howItWorks: "服务流程",
+                reviews: "客户评价",
+                freeQuote: "免费报价",
+                heroTitle: "中国顶级医疗服务<br>节省 60-80% 医疗费用",
+                heroSubtitle: "访问中国顶级三甲医院，配备英语服务人员。以美国价格的一小部分获得优质医疗服务。",
+                getFreeQuote: "获取免费报价",
+                viewPrices: "查看价格",
+                avgSavings: "平均节省",
+                successfulCases: "成功案例",
+                partnerHospitals: "合作医院",
+                satisfactionRate: "满意率",
+                comparePrices: "价格对比 节省数千美元",
+                compareSubtitle: "同样的质量，同样的技术，60-80% 的费用节省",
+                procedure: "医疗项目",
+                usPrice: "美国价格",
+                chinaPrice: "中国价格",
+                yourSavings: "您的节省",
+                dentalFull: "全口种植牙",
+                facelift: "面部提升手术",
+                checkup: "高端体检套餐",
+                hipReplacement: "髋关节置换",
+                ivf: "试管婴儿治疗（每周期）",
+                tcm: "中医调理（14 天）",
+                save35k: "$35,000 - $55,000 (70%)",
+                save10k: "$10,000 - $20,000 (67%)",
+                save1k5: "$1,500 - $4,000 (75%)",
+                save28k: "$28,000 - $42,000 (70%)",
+                save10k2: "$10,000 - $17,000 (60%)",
+                save6k: "$6,000 - $11,000 (73%)",
+                calcSavings: "计算您的节省",
+                ourServices: "我们的医疗服务",
+                servicesSubtitle: "全面的医疗解决方案，无与伦比的价格",
+                dental: "牙科种植",
+                dentalDesc: "全口重建、单颗种植、All-on-4。顶级材料，经验丰富的外科医生。",
+                from1500: "每颗$1,500 起",
+                cosmetic: "医美整形",
+                cosmeticDesc: "面部提升、隆鼻、隆胸、吸脂。认证整形外科医生。",
+                from3000: "$3,000 起",
+                healthCheckup: "高端体检",
+                checkupDesc: "全面高管健康筛查。先进影像、全套血液检查、专家会诊。",
+                from500: "$500 起",
+                tcm2: "中医调理",
+                tcmDesc: "针灸、中药、拔罐、推拿。整体治疗方法。",
+                from2000: "$2,000 起（14 天）",
+                ivf2: "辅助生殖",
+                ivfDesc: "试管婴儿、冻卵、精子库。高成功率，现代化设施。",
+                from5000: "每周期$5,000 起",
+                ortho: "骨科手术",
+                orthoDesc: "髋/膝关节置换、脊柱手术、运动医学。微创技术。",
+                from12000: "$12,000 起",
+                howItWorks2: "服务流程",
+                howSubtitle: "简单的 4 步流程，节省数千美元医疗费用",
+                step1: "免费咨询",
+                step1Desc: "提交您的咨询。我们的医疗顾问将在 24 小时内审核您的案例。",
+                step2: "治疗方案",
+                step2Desc: "获得个性化治疗方案、价格报价和医院推荐。",
+                step3: "出行与治疗",
+                step3Desc: "我们安排接机、酒店、翻译和医院预约。",
+                step4: "术后随访",
+                step4Desc: "远程随访咨询。我们确保您的康复顺利进行。",
+                successStories: "成功案例",
+                storiesSubtitle: "真实的患者，真实的节省，真实的效果",
+                review1: "\"我在全口种植牙上节省了$35,000！中国的医疗质量非常好，医院工作人员英语流利。最好的决定！\"",
+                review2: "\"我在中国做面部提升手术的费用只有在伦敦报价的 1/3。外科医生非常棒，我在一家很好的酒店康复。强烈推荐！\"",
+                review3: "\"我们来北京做体检，结果度过了美妙的一周。医疗服务一流，还省了很多钱！\"",
+                getFreeQuote2: "获取您的免费报价",
+                quoteSubtitle: "填写下方表格，我们将在 24 小时内联系您",
+                labelName: "全名 *",
+                labelEmail: "电子邮箱 *",
+                labelPhone: "电话号码（含国家代码）",
+                labelService: "感兴趣的服务 *",
+                labelMessage: "告诉我们您的需求",
+                submitQuote: "获取免费报价",
+                services2: "服务项目",
+                prices2: "价格对比",
+                howItWorks3: "服务流程",
+                contact: "联系我们",
+                privacy: "隐私政策",
+                terms: "服务条款",
+                footerText: "连接国际患者与中国优质、实惠的医疗服务",
+                chatWhatsApp: "WhatsApp 咨询"
+            },
+            'zh-tw': {
+                services: "服務項目",
+                prices: "價格對比",
+                howItWorks: "服務流程",
+                reviews: "客戶評價",
+                freeQuote: "免費報價",
+                heroTitle: "中國頂級醫療服務<br>節省 60-80% 醫療費用",
+                heroSubtitle: "訪問中國頂級三甲醫院，配備英語服務人員。以美國價格的一小部分獲得優質醫療服務。",
+                getFreeQuote: "獲取免費報價",
+                viewPrices: "查看價格",
+                avgSavings: "平均節省",
+                successfulCases: "成功案例",
+                partnerHospitals: "合作醫院",
+                satisfactionRate: "滿意率",
+                comparePrices: "價格對比 節省數千美元",
+                compareSubtitle: "同樣的質量，同樣的技術，60-80% 的費用節省",
+                procedure: "醫療項目",
+                usPrice: "美國價格",
+                chinaPrice: "中國價格",
+                yourSavings: "您的節省",
+                dentalFull: "全口種植牙",
+                facelift: "面部提升手術",
+                checkup: "高端體檢套餐",
+                hipReplacement: "髖關節置換",
+                ivf: "試管嬰兒治療（每周期）",
+                tcm: "中醫調理（14 天）",
+                save35k: "$35,000 - $55,000 (70%)",
+                save10k: "$10,000 - $20,000 (67%)",
+                save1k5: "$1,500 - $4,000 (75%)",
+                save28k: "$28,000 - $42,000 (70%)",
+                save10k2: "$10,000 - $17,000 (60%)",
+                save6k: "$6,000 - $11,000 (73%)",
+                calcSavings: "計算您的節省",
+                ourServices: "我們的醫療服務",
+                servicesSubtitle: "全面的醫療解決方案，無與倫比的價格",
+                dental: "牙科種植",
+                dentalDesc: "全口重建、單顆種植、All-on-4。頂級材料，經驗豐富的外科醫生。",
+                from1500: "每顆$1,500 起",
+                cosmetic: "醫美整形",
+                cosmeticDesc: "面部提升、隆鼻、隆胸、吸脂。認證整形外科醫生。",
+                from3000: "$3,000 起",
+                healthCheckup: "高端體檢",
+                checkupDesc: "全面高管健康篩查。先進影像、全套血液檢查、專家會診。",
+                from500: "$500 起",
+                tcm2: "中醫調理",
+                tcmDesc: "針灸、中藥、拔罐、推拿。整體治療方法。",
+                from2000: "$2,000 起（14 天）",
+                ivf2: "輔助生殖",
+                ivfDesc: "試管嬰兒、凍卵、精子庫。高成功率，現代化設施。",
+                from5000: "每周期$5,000 起",
+                ortho: "骨科手術",
+                orthoDesc: "髖/膝關節置換、脊柱手術、運動醫學。微創技術。",
+                from12000: "$12,000 起",
+                howItWorks2: "服務流程",
+                howSubtitle: "簡單的 4 步流程，節省數千美元醫療費用",
+                step1: "免費諮詢",
+                step1Desc: "提交您的諮詢。我們的醫療顧問將在 24 小時內審核您的案例。",
+                step2: "治療方案",
+                step2Desc: "獲得個性化治療方案、價格報價和醫院推薦。",
+                step3: "出行與治療",
+                step3Desc: "我們安排接機、酒店、翻譯和醫院預約。",
+                step4: "術後隨訪",
+                step4Desc: "遠程隨訪諮詢。我們確保您的康復順利進行。",
+                successStories: "成功案例",
+                storiesSubtitle: "真實的患者，真實的節省，真實的效果",
+                review1: "\"我在全口種植牙上節省了$35,000！中國的醫療質量非常好，醫院工作人員英語流利。最好的決定！\"",
+                review2: "\"我在中國做面部提升手術的費用只有在倫敦報價的 1/3。外科醫生非常棒，我在一家很好的酒店康復。強烈推薦！\"",
+                review3: "\"我們來北京做體檢，結果度過了美妙的一週。醫療服務一流，還省了很多錢！\"",
+                getFreeQuote2: "獲取您的免費報價",
+                quoteSubtitle: "填寫下方表格，我們將在 24 小時內聯繫您",
+                labelName: "全名 *",
+                labelEmail: "電子郵箱 *",
+                labelPhone: "電話號碼（含國家代碼）",
+                labelService: "感興趣的服務 *",
+                labelMessage: "告訴我們您的需求",
+                submitQuote: "獲取免費報價",
+                services2: "服務項目",
+                prices2: "價格對比",
+                howItWorks3: "服務流程",
+                contact: "聯繫我們",
+                privacy: "隱私政策",
+                terms: "服務條款",
+                footerText: "連接國際患者與中國優質、實惠的醫療服務",
+                chatWhatsApp: "WhatsApp 諮詢"
+            }
+        };
+
+        // Language switching function
+        function switchLang(lang) {
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Save preference
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Auto-detect language on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            let initialLang = 'en';
+            if (savedLang) {
+                initialLang = savedLang;
+            } else if (browserLang === 'zh') {
+                initialLang = 'zh';
+            }
+
+            if (initialLang !== 'en') {
+                const btn = document.querySelector(`.lang-btn[onclick="switchLang('${initialLang}')"]`);
+                if (btn) {
+                    btn.click();
+                }
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -771,13 +1112,6 @@
                     });
                 }
             });
-        });
-
-        // Form submission handling
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function(e) {
-            // Formspree will handle the submission
-            // You can add custom validation here if needed
         });
     </script>
 </body>
