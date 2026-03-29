@@ -20,12 +20,10 @@
 
         /* Language Switcher */
         .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
+            position: static;
             display: flex;
             gap: 0.5rem;
+            align-items: center;
         }
 
         .lang-btn {
@@ -495,13 +493,6 @@
     </style>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button class="lang-btn active" onclick="switchLang('en')">EN</button>
-        <button class="lang-btn" onclick="switchLang('zh')">中文</button>
-        <button class="lang-btn" onclick="switchLang('zh-tw')">繁體</button>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -512,6 +503,12 @@
                 <a href="#how-it-works" data-i18n="howItWorks">How It Works</a>
                 <a href="#testimonials" data-i18n="reviews">Reviews</a>
                 <a href="#contact" class="btn-primary" data-i18n="freeQuote">Free Quote</a>
+            </div>
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+                <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+                <button class="lang-btn" onclick="switchLang('zh-tw')">繁體</button>
             </div>
         </div>
     </nav>
